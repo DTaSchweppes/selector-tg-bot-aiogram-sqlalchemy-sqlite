@@ -1,5 +1,4 @@
-from operations import dp
-
+from operations.parsers import dp
 
 if __name__ == "__main__":
     from aiogram import executor

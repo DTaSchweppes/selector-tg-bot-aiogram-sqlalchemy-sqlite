@@ -23,7 +23,7 @@ async def cmd_start(message: types.Message):
 # Обработчик команды /register
 @dp.message_handler(Command("register"))
 async def cmd_register(message: types.Message):
-    await message.answer("Нужно пройти небольшую регистрацию! Введите ваше имя.")
+    await message.answer("⚠️Необходимо пройти небольшую регистрацию! Введите ваше имя:")
     await RegisterState.next()
 
 
@@ -35,7 +35,7 @@ async def process_register_name(message: types.Message, state: FSMContext):
     async with state.proxy() as data:
         data["name"] = name
 
-    await message.answer("Введите ваш возраст.")
+    await message.answer("Введите ваш возраст:")
     await RegisterState.next()
 
 
@@ -54,6 +54,8 @@ async def process_register_age(message: types.Message, state: FSMContext):
         session.commit()
         session.close()
 
+
     await state.finish()
 
-    await message.answer("Регистрация успешно завершена!")
+    await message.answer("Регистрация успешно завершена!✅")
+

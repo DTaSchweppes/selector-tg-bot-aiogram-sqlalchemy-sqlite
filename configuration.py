@@ -16,6 +16,7 @@ dp = Dispatcher(bot, storage=storage)
 # Подключение к базе данных
 engine = create_engine("sqlite:///mydatabase.db", echo=True)
 Session = sessionmaker(bind=engine)
+session = Session()
 Base = declarative_base()
 
 # Настройка логирования
